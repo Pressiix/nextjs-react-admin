@@ -6,7 +6,7 @@ import {
 import GenericHttpClientService from "../services/GenericHttpClientService";
 import { SignInResponse, User } from "../types/Authentication";
 import axios from "axios";
-import RbacService from "../services/rbacService";
+import RbacService from "@/services/RbacService";
 // import { GenericLoggerService } from "../services/GenericLoggerService";
 
 // const logger = GenericLoggerService.getInstance();

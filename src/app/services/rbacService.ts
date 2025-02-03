@@ -1,4 +1,4 @@
-import { ROLE_PERMISSIONS } from "../configs/rolePermissions";
+import { ROLE_PERMISSIONS } from "@/configs/rolePermissions";
 
 export default class RbacService {
   private static _instance: RbacService;
