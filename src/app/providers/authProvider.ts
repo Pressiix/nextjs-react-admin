@@ -7,9 +7,9 @@ import GenericHttpClientService from "../services/GenericHttpClientService";
 import { SignInResponse, User } from "../types/Authentication";
 import axios from "axios";
 import RbacService from "../services/rbacService";
-import { GenericLoggerService } from "../services/GenericLoggerService";
+// import { GenericLoggerService } from "../services/GenericLoggerService";
 
-const logger = GenericLoggerService.getInstance();
+// const logger = GenericLoggerService.getInstance();
 
 /**
  * This authProvider is only for test purposes. Don't use it in production.
