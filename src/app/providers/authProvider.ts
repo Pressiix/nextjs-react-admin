@@ -19,16 +19,16 @@ export const AuthProvider: AuthProviderType = {
     try {
       const httpClientService = await GenericHttpClientService.initInstance(
         axios.create({
-          baseURL: import.meta.env.VITE_STRAPI_BASE_URL,
+          baseURL: process.env.STRAPI_BASE_URL,
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-        }),
+        })
       );
       const userCredential: SignInResponse = await httpClientService.post<any>(
         "/api/auth/local",
-        JSON.stringify({ identifier: username, password }),
+        JSON.stringify({ identifier: username, password })
       );
 
       const currentUser: User = await httpClientService.get("/api/users/me", {
@@ -50,10 +50,10 @@ export const AuthProvider: AuthProviderType = {
             "https://e7.pngegg.com/pngimages/73/118/png-clipart-my-melody-hello-kitty-kuromi-sanrio-hello-miscellaneous-white-thumbnail.png",
         };
         // Log the login attempt
-        await logger.info(
-          `Login success for user: ${userInfo.username}`,
-          userInfo,
-        );
+        // await logger.info(
+        //   `Login success for user: ${userInfo.username}`,
+        //   userInfo
+        // );
         setLocalStorageItem("user", JSON.stringify(userInfo));
         // TODO(@watcharaphonp): change to JWT way
         setLocalStorageItem("role", "admin");
@@ -63,10 +63,10 @@ export const AuthProvider: AuthProviderType = {
       return Promise.reject(
         new HttpError("Unauthorized", 401, {
           message: "Invalid username or password",
-        }),
+        })
       );
     } catch (error) {
-      await logger.error("Login error:", { error: error });
+      // await logger.error("Login error:", { error: error });
       throw error;
     }
   },
@@ -90,7 +90,7 @@ export const AuthProvider: AuthProviderType = {
     const rbacService = new RbacService();
 
     return Promise.resolve(
-      rbacService.hasPermission(role, `${action}_${resource}`),
+      rbacService.hasPermission(role, `${action}_${resource}`)
     );
   },
   getIdentity: () => {
