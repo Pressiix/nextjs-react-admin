@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project with [React-Admin](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project with [React-Admin](https://marmelab.com/react-admin/).
 
 ## Getting Started
 
